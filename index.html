@@ -395,7 +395,7 @@ console.log(admin); // Выведет "Елизавета"</pre>
         const name = "Елизавета";
         const admin = name;
         document.getElementById('admin-output').textContent = admin;
-        document.getElementById('var-result').style.display = 'block';
+        document.getElementById('var-result').style.display = 'block' ? 'Вывести' : 'Скрыть';
     });
 
     // Проверка возраста
@@ -446,8 +446,8 @@ console.log(admin); // Выведет "Елизавета"</pre>
             bubble.style.animationDelay = `${Math.random() * 5}s`;
             bubblesContainer.appendChild(bubble);
         }
+         createBubbles();
     }
-    createBubbles();
 </script>
 </body>
 </html>
