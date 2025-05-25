@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Лабораторная работа №3</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css ">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat :wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --primary: #6c5ce7;
@@ -233,31 +233,6 @@
             <div class="task-actions">
                 <button class="btn-primary test-func" data-target="func-result">Вывести</button>
             </div>
-            <div class="code-block">
-                <pre>// Новая реализация функции min()
-function min(a, b) {
-    if (isNaN(a) || isNaN(b)) {
-        alert("Пожалуйста, введите числа");
-        return null;
-    }
-    return a < b ? a : b;
-}
-// Функция для интерактивного тестирования
-function testMinFunction() {
-    const num1 = parseFloat(prompt("Введите первое число:"));
-    if (isNaN(num1)) {
-        alert("Это не число!");
-        return;
-    }
-    const num2 = parseFloat(prompt("Введите второе число:"));
-    if (isNaN(num2)) {
-        alert("Это не число!");
-        return;
-    }
-    const result = min(num1, num2);
-    alert(`Минимальное число: ${result}`);
-}</pre>
-            </div>
             <div class="result-container" id="func-result" style="display: none;">
                 <h4>Интерактивный тест функции min():</h4>
                 <div class="input-group">
@@ -275,11 +250,6 @@ function testMinFunction() {
             <div class="task-actions">
                 <button class="btn-primary test-vars" data-target="var-result">Вывести</button>
             </div>
-            <div class="code-block">
-                <pre>let name = "Елизавета";
-let admin = name;
-console.log(admin); // Выведет "Елизавета"</pre>
-            </div>
             <div class="result-container" id="var-result" style="display: none;">
                 <h4>Результат выполнения:</h4>
                 <p>Значение переменной admin: <strong id="admin-output"></strong></p>
@@ -291,19 +261,6 @@ console.log(admin); // Выведет "Елизавета"</pre>
             <h3 class="task-title"><i class="fas fa-check-circle"></i> Подтверждение возраста</h3>
             <div class="task-actions">
                 <button class="btn-primary test-age">Выполнить</button>
-            </div>
-            <div class="code-block">
-                <pre>function checkAge() {
-    let age;
-    let confirmed = false;
-    while (!confirmed) {
-        age = prompt("Сколько вам лет?");
-        if (age === null) return;
-        confirmed = confirm(`Вы уверены, что вам ${age} лет?`);
-        if (!confirmed) alert("Давайте попробуем ещё раз!");
-    }
-    alert(`Спасибо, ваш возраст: ${age} лет`);
-}</pre>
             </div>
         </div>
 
@@ -435,7 +392,7 @@ console.log(admin); // Выведет "Елизавета"</pre>
     // Создаем пузыри динамически
     function createBubbles() {
         const bubblesContainer = document.querySelector('.floating-bubbles');
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 20; i++) {
             const bubble = document.createElement('div');
             bubble.className = 'bubble';
             const size = Math.random() * 60 + 40;
@@ -447,6 +404,7 @@ console.log(admin); // Выведет "Елизавета"</pre>
             bubblesContainer.appendChild(bubble);
         }
     }
+    createBubbles();
 </script>
 </body>
 </html>
