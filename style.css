@@ -1,0 +1,482 @@
+:root {
+    --primary: #6c5ce7;
+    --primary-light: #a29bfe;
+    --success: #00b894;
+    --warning: #fdcb6e;
+    --danger: #d63031;
+    --dark: #2d3436;
+    --light: #f5f6fa;
+    --resume-primary: #3498db;
+    --resume-accent: #e74c3c;
+    --resume-dark: #2c3e50;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    color: var(--dark);
+    overflow-x: hidden;
+    transition: background-color 0.5s ease;
+    padding: 20px;
+}
+
+/* Общие стили для контейнеров */
+.resume-container, .container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    padding: 30px;
+}
+
+/* Стили резюме */
+.resume-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
+}
+
+.photo-container {
+    position: relative;
+    margin-right: 30px;
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 2;
+    position: relative;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+}
+
+.photo-frame {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--resume-primary), var(--resume-accent));
+    top: -5px;
+    left: -5px;
+    z-index: 1;
+}
+
+.name-container h1 {
+    font-size: 2.2rem;
+    margin: 0;
+    color: var(--resume-dark);
+    font-family: 'Montserrat', sans-serif;
+}
+
+#lastName {
+    color: var(--resume-primary);
+    margin-bottom: 10px;
+}
+
+.profession {
+    font-size: 1.2rem;
+    color: #777;
+    font-weight: 600;
+    margin: 0;
+}
+
+.resume-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resume-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.resume-section h2 {
+    font-size: 1.5rem;
+    color: var(--resume-dark);
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.resume-section h2 i {
+    margin-right: 10px;
+    color: var(--resume-primary);
+}
+
+/* Стили конспекта курса */
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeIn 1s ease;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    font-family: 'Poppins', sans-serif;
+}
+
+.header h1 i {
+    margin-right: 15px;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #dfe6e9;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    border-radius: 10px;
+    transition: width 1s ease;
+}
+
+.topics {
+    display: grid;
+    grid-gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.topic {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.topic::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+}
+
+.topic:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.icon {
+    font-size: 2rem;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+}
+
+.content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.content p {
+    color: #636e72;
+    font-size: 0.9rem;
+}
+
+.progress-mini {
+    height: 5px;
+    background: #dfe6e9;
+    border-radius: 5px;
+    margin-top: 0.8rem;
+    overflow: hidden;
+}
+
+.progress-mini::after {
+    content: '';
+    display: block;
+    height: 100%;
+    background: var(--warning);
+    border-radius: 5px;
+}
+
+/* Статусы */
+.learned {
+    border-left: 5px solid var(--success);
+}
+
+.learned .icon {
+    color: var(--success);
+}
+
+.in-progress {
+    border-left: 5px solid var(--warning);
+}
+
+.in-progress .icon {
+    color: var(--warning);
+}
+
+.not-learned {
+    border-left: 5px solid var(--danger);
+}
+
+.not-learned .icon {
+    color: var(--danger);
+}
+
+/* Статистика */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.stat-card h4 {
+    font-size: 0.9rem;
+    color: #636e72;
+    margin-bottom: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+/* Интерактивная секция */
+.interactive-section {
+    background-color: var(--light);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-right: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input[type="text"] {
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    flex-grow: 1;
+    min-width: 200px;
+    transition: border-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+input[type="text"]:focus {
+    border-color: var(--resume-primary);
+    outline: none;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: var(--resume-primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+}
+
+button:hover {
+    background-color: var(--resume-dark);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#changeBgBtn {
+    background-color: var(--resume-accent);
+    margin-right: 10px;
+}
+
+#changeBgBtn:hover {
+    background-color: #c0392b;
+}
+
+#printBtn {
+    background-color: #2ecc71;
+}
+
+#printBtn:hover {
+    background-color: #27ae60;
+}
+
+/* Пузыри */
+.floating-bubbles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(108, 92, 231, 0.1);
+    animation: float 15s infinite linear;
+}
+
+.bubble:nth-child(1) {
+    width: 100px;
+    height: 100px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+    width: 150px;
+    height: 150px;
+    top: 60%;
+    left: 80%;
+    animation-delay: 2s;
+}
+
+.bubble:nth-child(3) {
+    width: 70px;
+    height: 70px;
+    top: 80%;
+    left: 30%;
+    animation-delay: 4s;
+}
+
+.bubble:nth-child(4) {
+    width: 120px;
+    height: 120px;
+    top: 30%;
+    left: 50%;
+    animation-delay: 6s;
+}
+
+/* Анимации */
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .container, .resume-container {
+        padding: 1rem;
+    }
+    
+    .stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .resume-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .photo-container {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    input[type="text"] {
+        width: 100%;
+    }
+}
+
+@media print {
+    .interactive-section, .floating-bubbles {
+        display: none;
+    }
+    
+    body {
+        background-color: white;
+        padding: 0;
+    }
+    
+    .resume-container, .container {
+        box-shadow: none;
+        padding: 20px;
+    }
+}
