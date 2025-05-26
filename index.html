@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
             --dark: #2d3436;
             --light: #f5f6fa;
         }
+
         body {
             font-family: 'Montserrat', sans-serif;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -20,30 +22,35 @@
             padding: 2rem;
             color: var(--dark);
         }
+
         .container {
             max-width: 900px;
             margin: 0 auto;
             background: white;
             border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
             padding: 2.5rem;
             position: relative;
             overflow: hidden;
         }
+
         .header {
             text-align: center;
             margin-bottom: 2.5rem;
             position: relative;
         }
+
         .header h1 {
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 1rem;
         }
+
         .task-container {
             display: grid;
             gap: 1.5rem;
         }
+
         .task {
             background: rgb(217, 158, 209);
             border-radius: 15px;
@@ -54,10 +61,12 @@
             position: relative;
             overflow: hidden;
         }
+
         .task:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 255, 13, 0.1);
         }
+
         .task-title {
             font-size: 1.4rem;
             margin-top: 0;
@@ -65,21 +74,25 @@
             display: flex;
             align-items: center;
         }
+
         .task-title i {
             margin-right: 12px;
             font-size: 1.6rem;
         }
+
         .task.completed .task-title i,
         .task.in-progress .task-title i,
         .task.not-started .task-title i {
             color: #00ff1e;
         }
+
         .task-actions {
             display: flex;
             gap: 1rem;
             margin-top: 1.5rem;
             flex-wrap: wrap;
         }
+
         button {
             padding: 0.8rem 1.5rem;
             border: none;
@@ -89,21 +102,26 @@
             transition: all 0.3s ease;
             font-family: 'Montserrat', sans-serif;
         }
+
         .btn-primary {
             background: var(--primary);
             color: white;
         }
+
         .btn-primary:hover {
             background: #5a4bd6;
             transform: translateY(-2px);
         }
+
         .btn-secondary {
             background: #f1f1f1;
             color: var(--dark);
         }
+
         .btn-secondary:hover {
             background: #e1e1e1;
         }
+
         .result-container {
             margin-top: 1.5rem;
             padding: 1.2rem;
@@ -111,6 +129,7 @@
             background: #f8f9fa;
             border-left: 4px solid var(--primary);
         }
+
         .code-block {
             background: #2d3436;
             color: #f5f6fa;
@@ -121,6 +140,7 @@
             margin-top: 1rem;
             display: none;
         }
+
         .floating-bubbles {
             position: fixed;
             top: 0;
@@ -130,16 +150,24 @@
             z-index: -1;
             pointer-events: none;
         }
+
         .bubble {
             position: absolute;
             border-radius: 50%;
             background: rgba(108, 92, 231, 0.08);
             animation: float 15s infinite linear;
         }
+
         @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); }
-            100% { transform: translateY(-100vh) rotate(360deg); }
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+            }
         }
+
         .resume-preview {
             display: none;
             background: white;
@@ -148,12 +176,14 @@
             margin-top: 1.5rem;
             border: 1px solid #eee;
         }
+
         .input-group {
             display: flex;
             gap: 10px;
             margin-bottom: 15px;
             flex-wrap: wrap;
         }
+
         .input-group input {
             padding: 10px 15px;
             border: 2px solid #ddd;
@@ -164,187 +194,178 @@
             background: white;
             color: #000000;
         }
+
         .min-result {
             font-weight: bold;
             color: var(--primary);
             font-size: 1.2rem;
             margin-top: 10px;
         }
+
         /* Стили для резюме */
         .resume-card {
-    background: white;
-    border-radius: 15px;
-    padding: 2rem;
-    text-align: center;
-}
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+        }
 
-.btn-download {
-    display: inline-block;
-    margin-top: 1rem;
-    background: var(--primary);
-    color: white;
-    padding: 0.7rem 1.5rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.3s ease;
-}
+        .btn-download {
+            display: inline-block;
+            margin-top: 1rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
 
-.btn-download:hover {
-    background: #5a4bd6;
-}
+        .btn-download:hover {
+            background: #5a4bd6;
+        }
     </style>
 </head>
+
 <body>
-<div class="container">
-    <div class="header">
-        <h1>Лабораторная работа №3</h1>
-    </div>
-    <div class="task-container">
+    <div class="container">
+        <div class="header">
+            <h1>Лабораторная работа №3</h1>
+        </div>
+        <div class="task-container">
 
-        <!-- Задание 1 -->
-        <div class="task completed">
-            <h3 class="task-title"><i class="fas fa-check-circle"></i> Функция min()</h3>
-            <div class="task-actions">
-                <button class="btn-primary test-func" data-target="func-result">Вывести</button>
-            </div>
-            <div class="result-container" id="func-result" style="display: none;">
-                <h4>Интерактивный тест функции min():</h4>
-                <div class="input-group">
-                    <input type="number" id="num1" placeholder="Первое число">
-                    <input type="number" id="num2" placeholder="Второе число">
-                    <button class="btn-primary" id="find-min">Найти минимум</button>
+            <!-- Задание 1 -->
+            <div class="task completed">
+                <h3 class="task-title"><i class="fas fa-check-circle"></i> Функция min()</h3>
+                <div class="task-actions">
+                    <button class="btn-primary test-func" data-target="func-result">Вывести</button>
                 </div>
-                <div class="min-result" id="min-result"></div>
+                <div class="result-container" id="func-result" style="display: none;">
+                    <h4>Интерактивный тест функции min():</h4>
+                    <div class="input-group">
+                        <input type="number" id="num1" placeholder="Первое число">
+                        <input type="number" id="num2" placeholder="Второе число">
+                        <button class="btn-primary" id="find-min">Найти минимум</button>
+                    </div>
+                    <div class="min-result" id="min-result"></div>
+                </div>
             </div>
-        </div>
 
-        <!-- Задание 2 -->
-        <div class="task completed">
-            <h3 class="task-title"><i class="fas fa-check-circle"></i> Переменные admin/name</h3>
-            <div class="task-actions">
-                <button class="btn-primary test-vars" data-target="var-result">Вывести</button>
+            <!-- Задание 2 -->
+            <div class="task completed">
+                <h3 class="task-title"><i class="fas fa-check-circle"></i> Переменные admin/name</h3>
+                <div class="task-actions">
+                    <button class="btn-primary test-vars" data-target="var-result">Вывести</button>
+                </div>
+                <div class="result-container" id="var-result" style="display: none;">
+                    <h4>Результат выполнения:</h4>
+                    <p>Значение переменной admin: <strong id="admin-output"></strong></p>
+                </div>
             </div>
-            <div class="result-container" id="var-result" style="display: none;">
-                <h4>Результат выполнения:</h4>
-                <p>Значение переменной admin: <strong id="admin-output"></strong></p>
+
+            <!-- Задание 3 -->
+            <div class="task in-progress">
+                <h3 class="task-title"><i class="fas fa-check-circle"></i> Подтверждение возраста</h3>
+                <div class="task-actions">
+                    <button class="btn-primary test-age">Выполнить</button>
+                </div>
             </div>
-        </div>
 
-        <!-- Задание 3 -->
-        <div class="task in-progress">
-            <h3 class="task-title"><i class="fas fa-check-circle"></i> Подтверждение возраста</h3>
-            <div class="task-actions">
-                <button class="btn-primary test-age">Выполнить</button>
+            <!-- Задание 4 — Резюме -->
+            <div class="task not-started">
+                <h3 class="task-title"><i class="fas fa-user"></i> Резюме</h3>
+                <div class="task-actions">
+                    <button class="btn-primary" onclick="location.href = 'resume.html';">Открыть резюме</button>
+                </div>
             </div>
-        </div>
 
-        <!-- Задание 4 — Резюме -->
-        <div class="task not-started">
-            <h3 class="task-title"><i class="fas fa-user"></i> Резюме</h3>
-            <div class="task-actions">
-               <button class="btn-primary" onclick="openResume()">Открыть резюме</button>
+            <div class="floating-bubbles">
+                <div class="bubble" style="width: 120px; height: 120px; top: 15%; left: 10%; animation-delay: 0s;">
+                </div>
+                <div class="bubble" style="width: 80px; height: 80px; top: 70%; left: 80%; animation-delay: 3s;"></div>
             </div>
-    <!-- Задание 4 -->
-   <div class="task-actions">
-        <!-- Кнопка ведёт на внешнюю страницу -->
-        <a href="file:///C:/Users/user/Desktop/Laba3/resume.html"
-           class="btn-primary"
-           target="_blank"
-           rel="noopener noreferrer">
-        </a>
-    </div>
-</div>
 
-<div class="floating-bubbles">
-    <div class="bubble" style="width: 120px; height: 120px; top: 15%; left: 10%; animation-delay: 0s;"></div>
-    <div class="bubble" style="width: 80px; height: 80px; top: 70%; left: 80%; animation-delay: 3s;"></div>
-</div>
+            <script>
+                // Универсальный обработчик для кнопок "Вывести / Скрыть"
+                document.querySelectorAll('[data-target]').forEach(button => {
+                    button.addEventListener('click', function () {
+                        const targetId = this.getAttribute('data-target');
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            const isVisible = targetElement.style.display === 'block';
+                            targetElement.style.display = isVisible ? 'none' : 'block';
+                            this.textContent = isVisible ? 'Вывести' : 'Скрыть';
+                        }
+                    });
+                });
 
-<script>
-    // Универсальный обработчик для кнопок "Вывести / Скрыть"
-    document.querySelectorAll('[data-target]').forEach(button => {
-        button.addEventListener('click', function () {
-            const targetId = this.getAttribute('data-target');
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                const isVisible = targetElement.style.display === 'block';
-                targetElement.style.display = isVisible ? 'none' : 'block';
-                this.textContent = isVisible ? 'Вывести' : 'Скрыть';
-            }
-        });
-    });
+                // Поиск минимума
+                document.getElementById('find-min').addEventListener('click', function () {
+                    const num1 = parseFloat(document.getElementById('num1').value);
+                    const num2 = parseFloat(document.getElementById('num2').value);
 
-    // Поиск минимума
-    document.getElementById('find-min').addEventListener('click', function () {
-        const num1 = parseFloat(document.getElementById('num1').value);
-        const num2 = parseFloat(document.getElementById('num2').value);
+                    if (isNaN(num1)) {
+                        alert("Пожалуйста, введите первое число");
+                        return;
+                    }
+                    if (isNaN(num2)) {
+                        alert("Пожалуйста, введите второе число");
+                        return;
+                    }
 
-        if (isNaN(num1)) {
-            alert("Пожалуйста, введите первое число");
-            return;
-        }
-        if (isNaN(num2)) {
-            alert("Пожалуйста, введите второе число");
-            return;
-        }
+                    const result = min(num1, num2);
+                    document.getElementById('min-result').textContent = `Минимальное число: ${result}`;
+                });
 
-        const result = min(num1, num2);
-        document.getElementById('min-result').textContent = `Минимальное число: ${result}`;
-    });
+                // Функция min
+                function min(a, b) {
+                    if (isNaN(a) || isNaN(b)) {
+                        alert("Пожалуйста, введите числа");
+                        return null;
+                    }
+                    return a < b ? a : b;
+                }
 
-    // Функция min
-    function min(a, b) {
-        if (isNaN(a) || isNaN(b)) {
-            alert("Пожалуйста, введите числа");
-            return null;
-        }
-        return a < b ? a : b;
-    }
+                // Тестирование переменных
+                document.querySelector('.test-vars').addEventListener('click', function () {
+                    const name = "Елизавета";
+                    const admin = name;
+                    document.getElementById('admin-output').textContent = admin;
+                    document.getElementById('var-result').style.display = 'block' ? 'Вывести' : 'Скрыть';
+                });
 
-    // Тестирование переменных
-    document.querySelector('.test-vars').addEventListener('click', function () {
-        const name = "Елизавета";
-        const admin = name;
-        document.getElementById('admin-output').textContent = admin;
-        document.getElementById('var-result').style.display = 'block' ? 'Вывести' : 'Скрыть';
-    });
+                // Проверка возраста
+                document.querySelector('.test-age').addEventListener('click', checkAge);
+                function checkAge() {
+                    let age;
+                    let confirmed = false;
+                    while (!confirmed) {
+                        age = prompt("Сколько вам лет?");
+                        if (age === null) return;
+                        confirmed = confirm(`Вы уверены, что вам ${age} лет?`);
+                        if (!confirmed) alert("Давайте попробуем ещё раз!");
+                    }
+                    alert(`Спасибо, ваш возраст: ${age} лет`);
+                }
 
-    // Проверка возраста
-    document.querySelector('.test-age').addEventListener('click', checkAge);
-    function checkAge() {
-        let age;
-        let confirmed = false;
-        while (!confirmed) {
-            age = prompt("Сколько вам лет?");
-            if (age === null) return;
-            confirmed = confirm(`Вы уверены, что вам ${age} лет?`);
-            if (!confirmed) alert("Давайте попробуем ещё раз!");
-        }
-        alert(`Спасибо, ваш возраст: ${age} лет`);
-    }
-
-    function openResume() {
-    window.location.href = "file:///C:/Users/user/Desktop/Laba3/resume.html";
-}
-    
-
-    // Создаем пузыри динамически
-    function createBubbles() {
-        const bubblesContainer = document.querySelector('.floating-bubbles');
-        for (let i = 0; i < 20; i++) {
-            const bubble = document.createElement('div');
-            bubble.className = 'bubble';
-            const size = Math.random() * 60 + 40;
-            bubble.style.width = `${size}px`;
-            bubble.style.height = `${size}px`;
-            bubble.style.left = `${Math.random() * 90}%`;
-            bubble.style.top = `${Math.random() * 100 + 100}%`;
-            bubble.style.animationDelay = `${Math.random() * 5}s`;
-            bubblesContainer.appendChild(bubble);
-        }
-    }
-</script>
+                // Создаем пузыри динамически
+                function createBubbles() {
+                    const bubblesContainer = document.querySelector('.floating-bubbles');
+                    for (let i = 0; i < 20; i++) {
+                        const bubble = document.createElement('div');
+                        bubble.className = 'bubble';
+                        const size = Math.random() * 60 + 40;
+                        bubble.style.width = `${size}px`;
+                        bubble.style.height = `${size}px`;
+                        bubble.style.left = `${Math.random() * 90}%`;
+                        bubble.style.top = `${Math.random() * 100 + 100}%`;
+                        bubble.style.animationDelay = `${Math.random() * 5}s`;
+                        bubblesContainer.appendChild(bubble);
+                    }
+                }
+            </script>
 </body>
+
 </html>
