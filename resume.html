@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мое Резюме</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat :wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #291b95;
+            --success: #00b894;
+            --light-bg: #c6e2be;
+            --dark-text: #2d3436;
+            --light-text: #ffffff;
+            --border-radius: 12px;
+            --transition-time: 0.3s;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        h1, h2, h3 {
+            margin: 0;
+        }
+
+        header {
+            background: #8bd176;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 2rem 1rem;
+        }
+
+        /* --- Секция информации --- */
+        .about {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .about img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 3px solid var(--primary);
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .about p {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        /* --- Разделы опыта и образования --- */
+        .section {
+            background: #8bd176;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all var(--transition-time);
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .job,
+        .edu {
+            margin-bottom: 1.5rem;
+        }
+
+        .job h4,
+        .edu h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .job span,
+        .edu span {
+            color: #666;
+            display: block;
+        }
+
+        /* --- Навыки --- */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: var(--light-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: 600;
+            transition: background var(--transition-time);
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: var(--light-text);
+        }
+
+        /* --- Форма --- */
+        .contact-form {
+            background: rgb(139, 209, 118);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.7rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: var(--border-radius);
+            font-family: inherit;
+        }
+
+        .contact-form button {
+            background: var(--primary);
+            color: white;
+            padding: 0.7rem 1.2rem;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background: #27206a;
+        }
+
+        /* --- Контакты --- */
+        #contacts {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        /* --- Адаптивность --- */
+        @media (max-width: 768px) {
+            .about img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .skills {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .skills {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* --- Кнопки навигации --- */
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .btn-download,
+        .btn-contact {
+            padding: 0.7rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            text-align: center;
+            transition: background var(--transition-time);
+        }
+
+        .btn-download:hover,
+        .btn-contact:hover {
+            background: #5a4bd6;
+        }
+
+        /* --- Форма контактов --- */
+        #contact-section {
+            margin-top: 2rem;
+        }
+
+        /* --- Анимация появления секций --- */
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        [data-animate].visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="about" data-animate>
+        <img src="https://i.pinimg.com/736x/db/29/48/db29481cd70ff3cdf303849273d0ec50.jpg " alt="Фото">
+        <h2>Елизавета Котова</h2>
+        <p>Junior Frontend разработчик</p>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- Кнопки -->
+    <div class="actions" id="actions" data-animate>
+        <button class="btn-download" onclick="handleDownload()">Скачать резюме (PDF)</button>
+        <button class="btn-contact" onclick="scrollToContact()">Связаться со мной</button>
+    </div>
+
+    <!-- Опыт работы -->
+    <section class="section" data-animate>
+        <h3>Опыт работы</h3>
+        <div class="job">
+            <h4>Frontend разработчик (учебные проекты)</h4>
+            <span>Самостоятельная работа</span>
+            <p>Разработка учебных приложений на HTML, CSS, JavaScript. Изучение React и Vue.</p>
+        </div>
+    </section>
+
+    <!-- Образование -->
+    <section class="section" data-animate>
+        <h3>Образование</h3>
+        <div class="edu">
+            <h4>МГТУ "Станкин", 2022-2026</h4>
+        </div>
+        <div class="edu">
+            <h4>Университет Иннополис "2023 Data Science, 2023-2024"</h4>
+        </div>
+    </section>
+
+    <!-- Навыки -->
+    <section class="section" data-animate>
+        <h3>Навыки</h3>
+        <div class="skills">
+            <div class="skill-tag">HTML</div>
+            <div class="skill-tag">CSS</div>
+            <div class="skill-tag">JavaScript</div>
+            <div class="skill-tag">Git</div>
+            <div class="skill-tag">MySQL</div>
+        </div>
+    </section>
+
+    <!-- Форма -->
+    <section class="contact-form" id="contact-section" data-animate>
+        <h3 style="color: var(--primary); margin-bottom: 1rem;">Свяжитесь со мной</h3>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Ваше имя" required><br>
+            <input type="email" id="email" placeholder="Email" required><br>
+            <textarea id="message" rows="5" placeholder="Сообщение"></textarea><br>
+            <button type="submit">Отправить</button>
+        </form>
+        <p id="formStatus" style="margin-top: 1rem;"></p>
+    </section>
+
+</div>
+
+<!-- Подвал -->
+<footer id="contacts" style="text-align: center; padding: 2rem;">
+    <p>&copy; 2025 Елизавета Котова | Все права защищены</p>
+</footer>
+
+<script>
+    // Анимация появления секций при скролле
+    const sections = document.querySelectorAll('[data-animate]');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // Скролл к форме
+    function scrollToContact() {
+        document.getElementById('contact-section').scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    function handleDownload() {
+    alert("Резюме скачано(заглушка)");
+}
+
+    // Простая валидация формы
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (!name || !email || !message) {
+            document.getElementById('formStatus').textContent = "Заполните все поля";
+            document.getElementById('formStatus').style.color = "red";
+            return;
+        }
+
+        document.getElementById('formStatus').textContent = "Спасибо за ваше сообщение!";
+        document.getElementById('formStatus').style.color = "green";
+
+        this.reset(); // Очистка формы
+    });
+</script>
+
+</body>
+</html>
