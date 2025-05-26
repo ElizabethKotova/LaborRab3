@@ -172,7 +172,6 @@
         }
         /* Стили для резюме */
         .resume-card {
-<<<<<<< HEAD
     background: white;
     border-radius: 15px;
     padding: 2rem;
@@ -195,54 +194,6 @@
 .btn-download:hover {
     background: #5a4bd6;
 }
-=======
-            background: rgb(224, 214, 214);
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            transition: background-color 0.3s ease;
-        }
-        .resume-photo {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid var(--primary);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 1rem;
-        }
-        .resume-name {
-            font-size: italic;
-            color: #000000;
-            margin-bottom: 0.5rem;
-        }
-        .resume-role {
-            font-style: italic;
-            color: #000000;
-            margin-bottom: 1.5rem;
-        }
-        .form-group {
-            margin-top: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        #surname-input {
-            padding: 0.5rem;
-            border: 1px solid #000000;
-            border-radius: 4px;
-            font-size: 1rem;
-            max-width: 300px;
-            width: 100%;
-        }
-        .resume-info {
-            color: #000000;
-            margin-top: 1.5rem;
-            line-height: 1.6;
-        }
->>>>>>> f70be7d2330ac32e5b04c5dc86d2de1d77dcc8f1
     </style>
 </head>
 <body>
@@ -278,7 +229,6 @@
             <div class="result-container" id="var-result" style="display: none;">
                 <h4>Результат выполнения:</h4>
                 <p>Значение переменной admin: <strong id="admin-output"></strong></p>
-<<<<<<< HEAD
             </div>
         </div>
 
@@ -380,144 +330,6 @@
 }
     
 
-=======
-            </div>
-        </div>
-
-        <!-- Задание 3 -->
-        <div class="task in-progress">
-            <h3 class="task-title"><i class="fas fa-check-circle"></i> Подтверждение возраста</h3>
-            <div class="task-actions">
-                <button class="btn-primary test-age">Выполнить</button>
-            </div>
-        </div>
-
-        <!-- Задание 4 — Резюме -->
-        <div class="task not-started">
-            <h3 class="task-title"><i class="fas fa-user"></i> Резюме</h3>
-            <div class="task-actions">
-                <button class="btn-primary show-preview">Показать превью</button>
-            </div>
-            <!-- Превью резюме -->
-            <div class="resume-preview" id="resume-preview" style="display: none;">
-                <h3>Мое резюме</h3>
-                <div class="resume-card">
-                    <img src="https://i.pinimg.com/736x/db/29/48/db29481cd70ff3cdf303849273d0ec50.jpg " alt="Фото" class="resume-photo">
-                    <h2 class="resume-name" id="resume-name">Елизавета <span id="resume-surname">Котова</span></h2>
-                    <p class="resume-role">Frontend разработчик</p>
-                    <div class="form-group">
-                        <input type="text" id="surname-input" placeholder="Введите новую фамилию">
-                        <button class="btn-primary change-surname">Обновить фамилию</button>
-                        <button class="btn-secondary random-bg">Случайный фон</button>
-                    </div>
-                    <div class="resume-info">
-                        <p><strong>Email:</strong> lizka1429@gmail.com</p>
-                        <p><strong>Опыт:</strong> 3 года</p>
-                        <p><strong>Навыки:</strong> HTML, CSS, JavaScript</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<div class="floating-bubbles">
-    <div class="bubble" style="width: 120px; height: 120px; top: 15%; left: 10%; animation-delay: 0s;"></div>
-    <div class="bubble" style="width: 80px; height: 80px; top: 70%; left: 80%; animation-delay: 3s;"></div>
-</div>
-
-<script>
-    // Универсальный обработчик для кнопок "Вывести / Скрыть"
-    document.querySelectorAll('[data-target]').forEach(button => {
-        button.addEventListener('click', function () {
-            const targetId = this.getAttribute('data-target');
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                const isVisible = targetElement.style.display === 'block';
-                targetElement.style.display = isVisible ? 'none' : 'block';
-                this.textContent = isVisible ? 'Вывести' : 'Скрыть';
-            }
-        });
-    });
-
-    // Показать превью резюме
-    document.querySelector('.show-preview').addEventListener('click', function () {
-        const preview = document.getElementById('resume-preview');
-        preview.style.display = preview.style.display === 'block' ? 'none' : 'block';
-        this.textContent = preview.style.display === 'block' ? 'Скрыть превью' : 'Показать превью';
-    });
-
-    // Поиск минимума
-    document.getElementById('find-min').addEventListener('click', function () {
-        const num1 = parseFloat(document.getElementById('num1').value);
-        const num2 = parseFloat(document.getElementById('num2').value);
-
-        if (isNaN(num1)) {
-            alert("Пожалуйста, введите первое число");
-            return;
-        }
-        if (isNaN(num2)) {
-            alert("Пожалуйста, введите второе число");
-            return;
-        }
-
-        const result = min(num1, num2);
-        document.getElementById('min-result').textContent = `Минимальное число: ${result}`;
-    });
-
-    // Функция min
-    function min(a, b) {
-        if (isNaN(a) || isNaN(b)) {
-            alert("Пожалуйста, введите числа");
-            return null;
-        }
-        return a < b ? a : b;
-    }
-
-    // Тестирование переменных
-    document.querySelector('.test-vars').addEventListener('click', function () {
-        const name = "Елизавета";
-        const admin = name;
-        document.getElementById('admin-output').textContent = admin;
-        document.getElementById('var-result').style.display = 'block' ? 'Вывести' : 'Скрыть';
-    });
-
-    // Проверка возраста
-    document.querySelector('.test-age').addEventListener('click', checkAge);
-    function checkAge() {
-        let age;
-        let confirmed = false;
-        while (!confirmed) {
-            age = prompt("Сколько вам лет?");
-            if (age === null) return;
-            confirmed = confirm(`Вы уверены, что вам ${age} лет?`);
-            if (!confirmed) alert("Давайте попробуем ещё раз!");
-        }
-        alert(`Спасибо, ваш возраст: ${age} лет`);
-    }
-
-    // Изменение фамилии
-    document.querySelector('.change-surname').addEventListener('click', function () {
-        const surnameInput = document.getElementById('surname-input');
-        const surnameSpan = document.getElementById('resume-surname');
-
-        if (surnameInput.value.trim() !== '') {
-            surnameSpan.textContent = surnameInput.value.trim();
-            surnameInput.value = '';
-        } else {
-            alert("Пожалуйста, введите фамилию");
-        }
-    });
-
-    // Случайный фон
-    document.querySelector('.random-bg').addEventListener('click', function () {
-        const resumeCard = document.querySelector('.resume-card');
-        const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-        resumeCard.style.backgroundColor = randomColor;
-    });
-
->>>>>>> f70be7d2330ac32e5b04c5dc86d2de1d77dcc8f1
     // Создаем пузыри динамически
     function createBubbles() {
         const bubblesContainer = document.querySelector('.floating-bubbles');
@@ -533,10 +345,6 @@
             bubblesContainer.appendChild(bubble);
         }
     }
-<<<<<<< HEAD
-=======
-    createBubbles();
->>>>>>> f70be7d2330ac32e5b04c5dc86d2de1d77dcc8f1
 </script>
 </body>
 </html>
